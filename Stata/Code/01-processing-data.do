@@ -48,7 +48,7 @@
 * Tidy Data: HH
 *-------------------------------------------------------------------------------	
 
-	//preserve 
+	preserve 
 		
 		* Keep HH vars
 		keep `ids' `hh_vars'
@@ -100,14 +100,14 @@
 				
 		order 	ar_unit, after(ar_farm)
 		
-		lab var submissiondate
+		lab var submissiondate "Date of interview"
 		
 		isid hhid, sort
 		
 		* Save data		
 		iesave 	"${data}/Intermediate/TZA_CTT_HH_mem.dta", ///
-				idvars(hhid member)  version(???) replace ///
-				report(path("${outputs}/???.csv") replace)  
+				idvars(hhid)  version(15) replace ///
+				report(path("${outputs}/TZA_CCT_HH_report.csv") replace)  
 		
 	restore
 	
@@ -134,42 +134,43 @@
 		// add variable/value labels
 		// create a template first, then edit the template and change the syntax to 
 		// iecodebook apply
-		iecodebook template 	using ///
+		iecodebook apply 	using ///
 								"${outputs}/hh_mem_codebook.xlsx"
 								
-		isid hhid					
+		isid hhid member					
 		
 		* Save data: Use iesave to save the clean data and create a report 
-		iesave 	???  
+		iesave 	"${data}/Intermediate/TZA_CCT_HH_mem.dta", ///
+				idvars(hhid member)  version(15) replace ///
+				report(path("${outputs}/TZA_CCT_HH_mem_report.csv") replace)    
 				
-	restore			
+	restore				
 	
 *-------------------------------------------------------------------------------	
 * Tidy Data: Secondary data
 *------------------------------------------------------------------------------- 	
 	
 	* Import secondary data 
-	???
+	import delimited "${data}/Raw/TZA_amenity.csv", clear
 	
-	* reshape  
-	reshape ???
+	* reshape wide 
+	reshape wide n , i(adm2_en) j(amenity) str
 	
 	* rename for clarity
-	rename ???
+	rename n* n_*
 	
-	* Fix data types
-	encode ???
+	encode adm2_en , gen(district) 
 	
-	* Label all vars 
+	* Label vars 
 	lab var district "District"
-	???
-	???
-	???
+	lab var n_school "No. of schools"
+	lab var n_clinic "No. of clinics"
+	lab var n_hospital "No. of hospitals"
 	
 	* Save
-	keeporder ???
+	keeporder district n_*
 	
-	save "${data}/Intermediate/???.dta", replace
+	save "${data}/Intermediate/TZA_amenity_tidy.dta", replace
 
 	
 ****************************************************************************end!
