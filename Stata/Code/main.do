@@ -24,19 +24,20 @@
 	sysdir set PLUS "${code}/ado"
 
 
-//	* Install packages 
-//	local user_commands	ietoolkit iefieldkit winsor sumstats estout keeporder grc1leg2 //Add required user-written commands
-//
-//	foreach command of local user_commands {
-//	   capture which `command'
-//	   if _rc == 111 {
-//		   ssc install `command'
-//	   }
-//	}
+	* Install packages - if they are already installed, they will not be installed again ;)
+	local user_commands	ietoolkit iefieldkit winsor sumstats estout keeporder grc1leg2 //Add required user-written commands
+
+	foreach command of local user_commands {
+	   capture which `command'
+	   if _rc == 111 {
+		   ssc install `command'
+	   }
+	}
 
 	* Run do files 
 	* Switch to 0/1 to not-run/run do-files 
-	if (0) do "${code}/01-processing-data.do"
+	if (1) do "${code}/01-processing-data.do"
+	if (2) do "${code}/02-constructing-data.do"
 
 
 * End of do-file!	
