@@ -1,5 +1,3 @@
-
-
 ---
 title: "First Presentation in Quarto"
 author: "Gabriel Caser dos Passos"
@@ -41,7 +39,6 @@ xxxx
 
 xxxxx
 
-
 ------------------------------------------------------------------------
 
 # Introduction
@@ -56,11 +53,10 @@ xxxxx
 
 : Here is the title
 
-
 # Adding Figures
 
 ::: incremental
- [![Density plots](Outputs/fig2.png){fig-alt="test" fig-align="center"}]
+\[![Density plots](Outputs/fig2.png){fig-alt="test" fig-align="center"}\]
 :::
 
 # Adding code
@@ -68,7 +64,6 @@ xxxxx
 ```{r}
 print(paste0("Last updated in ", Sys.Date()))
 ```
-
 
 # Printing the .csv table
 
@@ -79,4 +74,3 @@ data <- read.csv("Outputs/summary_table.csv")
 # Display the dataset as a table
 knitr::kable(data)
 ```
-
