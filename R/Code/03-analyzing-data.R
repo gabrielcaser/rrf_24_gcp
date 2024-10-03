@@ -16,7 +16,7 @@ hh_data   <- read_dta(file.path(data_path, "Final/TZA_CCT_analysis.dta"))
 
 # secondary data 
 secondary_data <- read_dta(file.path(data_path, "Final/TZA_amenity_analysis.dta")) %>%
-    mutate(district = as_factor(district))
+    mutate(district = as_factor(adm2_en))
 
 # Summary statistics
 
