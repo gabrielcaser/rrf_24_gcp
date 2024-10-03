@@ -5,6 +5,10 @@
 
 # Load libraries ---- 
 
+# I'm not sure what those two do :/
+renv::restore()
+dinm=FALSE
+
 # Load necessary libraries
 library(haven)        # for reading .dta files
 library(dplyr)        # for data manipulation
@@ -20,16 +24,13 @@ library(stargazer)    # writing nice tables
 library(RColorBrewer) # color palettes
 
 
-# I'm not sure what those two do :/
-renv::restore()
-dinm=FALSE
 
 # Set data path ----
 
 # this is the second root of the project, the first root is the code whose directory 
 # is already being handled by the rstudio project.
 
-data_path <- "C:/Users/wb633398/OneDrive/Gabriel/Jobs/DIME/trainings/Course Materials/DataWork/Data"
+data_path <- "/Users/worldbank/Documents/RRF Course/DataWork/Data"
 
 # Run the R scripts ----
 

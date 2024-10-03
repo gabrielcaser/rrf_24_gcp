@@ -15,6 +15,7 @@
 hh_data   <- read_dta(file.path(data_path, "Final/TZA_CCT_analysis.dta"))
 
 # secondary data 
+# here I get an error because the secondary_data table does not have a district variable. This is possibly due to manipulation you made in the Stata files I cannot run. 
 secondary_data <- read_dta(file.path(data_path, "Final/TZA_amenity_analysis.dta")) %>%
     mutate(district = as_factor(district))
 
