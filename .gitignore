@@ -26,6 +26,7 @@
 !README.md
 !CONTRIBUTING.md
 !LICENSE*
+!.qmd
 
 #######################
 # For performance reasons, if a folder is already ignored, then
@@ -57,6 +58,7 @@
 .Rproj.user
 # Still ignore renv/library
 /**/renv/library/
+!*.qmd
 
 # LaTeX
 !/**/*.tex
