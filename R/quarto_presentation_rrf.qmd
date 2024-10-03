@@ -1,0 +1,82 @@
+
+
+---
+title: "First Presentation in Quarto"
+author: "Gabriel Caser dos Passos"
+format: revealjs
+editor: visual
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
+
+## Bullets
+
+When you click the **Render** button a document will be generated that includes:
+
+::: incremental
+-   Content authored with markdown
+-   Output from executable code
+-   Testing adding one point at time 😊
+:::
+
+## Code
+
+When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+------------------------------------------------------------------------
+
+# Content
+
+## testing other thing
+
+xxxx
+
+. . .
+
+xxxxx
+
+
+------------------------------------------------------------------------
+
+# Introduction
+
+# Adding Tables
+
+| Col1        | Col2 | Col3  |
+|-------------|------|-------|
+| Some values | 37   | Heelo |
+| ❤️          |      |       |
+|             |      |       |
+
+: Here is the title
+
+
+# Adding Figures
+
+::: incremental
+ [![Density plots](Outputs/fig2.png){fig-alt="test" fig-align="center"}]
+:::
+
+# Adding code
+
+```{r}
+print(paste0("Last updated in ", Sys.Date()))
+```
+
+
+# Printing the .csv table
+
+```{r}
+# Load a sample dataset
+data <- read.csv("Outputs/summary_table.csv")
+
+# Display the dataset as a table
+knitr::kable(data)
+```
+
