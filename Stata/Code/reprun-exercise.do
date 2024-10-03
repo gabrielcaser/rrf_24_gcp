@@ -5,16 +5,17 @@ Code for Advanced Applications in Stata: Tools for Reproducible Research
 
 * Update folder path to the raw dataset and add a folder that for outputs that 
 * so that it can be tracked via Github 
-if "`c(username)'" == "???" {
-	global onedrive "???/DataWork/Data/Raw"
-	global outputs 	"???/GitHub-rrf-24/Stata/Outputs"
+if "`c(username)'" == "wb633398" {
+	global onedrive "C:/Users/wb633398/OneDrive/Gabriel/Jobs/DIME/trainings/Course Materials/DataWork"
+	global github 	"C:/Users/wb633398/Documents/GitHub/rrf_24_gcp"
+	global outputs 	"${github}/Stata/Outputs"
 }
 
 *-------------------------------------------------------------------------------	
 * Load data
 *------------------------------------------------------------------------------- 
 
-use "${onedrive}/TZA_CCT_baseline.dta", clear
+use "${onedrive}/Data/Raw/TZA_CCT_baseline.dta", clear
 
 *-------------------------------------------------------------------------------	
 * Clean data
